@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+class test{
+	int a, b;
+	string n;
+	public:
+		friend ostream& operator<<(ostream&, test obj);
+		friend istream& operator >>(istream&, test &obj);
+		
+};
+istream& operator>>(istream &din, test &obj)
+{
+	cout<<"ENTER VALUE OF a: ";
+	cin>>obj.a;
+	cout<<"ENTER VALUE OF b: ";
+	cin>>obj.b;
+	cout<<"ENTER STRING VALUE: ";
+	cin>>obj.n;
+	
+	return cin;
+}
+ostream& operator<<(ostream &dout, test obj)
+{
+	cout<<endl<<obj.a<<endl<<obj.b<<endl<<obj.n;
+	return cout;
+}
+
+int main()
+{
+	test obj;
+	cin>>obj;
+	cout<<obj;
+	
+	return 0;
+}
